@@ -15,6 +15,12 @@ class ShakespeareDataset:
     def __len__(self) -> int:
         return len(self.data)
 
+    def get_block_size(self) -> int:
+        return self.block_size
+
+    def get_vocab_size(self) -> int:
+        return self.tokenizer.get_vocab_size()
+
     def __getitem__(self,idx):
         item = self.data[idx:idx+self.block_size+1]
         x = torch.tensor(item[:-1],dtype=torch.long)
@@ -26,6 +32,7 @@ if __name__ == '__main__':
     dataset = ShakespeareDataset(block_size=8)
     print(len(dataset))
     print(dataset[0])
+    print(dataset.get_block_size())
+    print(dataset.get_vocab_size())
     dl = torch.utils.data.DataLoader(dataset,shuffle=False,batch_size=4)
-    train_dl, val_dl = torch.utils.data.ran
     print(next(iter(dl)))
