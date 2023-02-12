@@ -66,8 +66,8 @@ class Config:
     block_size = 8 # context-length
     batch_size = 32 # mini-batch size
     vocab_size = tokenizer.VOCAB_SIZE
-    n_embed = 16
-    head_size = 16
+    n_embed = 32
+    head_size = 32
 
 train_ds = ShakespeareDataset(Config.block_size)
 val_ds = ShakespeareDataset(Config.block_size,is_test=True)
@@ -137,11 +137,11 @@ class BigramLM(nn.Module):
 bglm = BigramLM(Config)
 
 
-optim = torch.optim.AdamW(bglm.parameters(),lr=1e-3)
+optim = torch.optim.AdamW(bglm.parameters(),lr=3e-4)
 bglm_dl = torch.utils.data.DataLoader(train_ds,shuffle=False,batch_size=Config.batch_size)
 
 it = iter(bglm_dl)
-for steps in range(10_000):
+for steps in range(20_000):
     inputs,targets = next(it)
     logits,loss=bglm(inputs,targets)
     optim.zero_grad()
