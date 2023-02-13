@@ -4,7 +4,7 @@ from pathlib import Path
 
 class ShakespeareDataset:
     def __init__(self,block_size:int) -> None:
-        self.file_path = Path('./dataset/shakespeare.txt')
+        self.file_path = Path('./data/shakespeare.txt')
         self.tokenizer_path = Path('./tokenizer/shakespeare.json')
         with open(self.file_path,'r',encoding='utf-8') as f:
             self.data = f.read()

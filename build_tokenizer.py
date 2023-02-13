@@ -18,5 +18,5 @@ if __name__ == '__main__':
     tokenizer.decoder = decoders.ByteLevel()
     tokenizer.normalizer = NFKC()
     trainer = BpeTrainer(special_tokens=['<|unknown|>'], min_frequency=2)
-    tokenizer.train(['./dataset/shakespeare.txt'],trainer)
+    tokenizer.train(['./data/shakespeare.txt'],trainer)
     tokenizer.save(str(tokenizer_path / 'shakespeare.json'))
