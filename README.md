@@ -4,7 +4,7 @@ building & training GPT from scratch based off of [Andrej Karpathy: Let's build 
 
 #### dataset [tiny-shakespeare](./data/shakespeare.txt) : [original](https://github.com/karpathy/char-rnn/blob/master/data/tinyshakespeare/input.txt) with slight modifications.
 
-### tutorialGPT
+### tutorialGPT (following the video)
 
 - [basic_bigramLM.py](./tutorialGPT/basic_bigramLM.py) : built a basic bigram model with generate to get things rolling.
 - [tutorial.ipynb](./tutorialGPT/tutorial.ipynb) : understood basic attention mechanism, using tril, masked_fill, softmax + notes on attention.
@@ -26,3 +26,17 @@ building & training GPT from scratch based off of [Andrej Karpathy: Let's build 
   - [notebook](./character_level_GPT/v2/GPT_character_level_v2_trained.ipynb)
   - [saved model](./character_level_GPT/v2/shakespareGPT)
   - [results](./character_level_GPT/v2/generated.txt)
+
+### ShakespeareGPT
+
+> used a byte-pair encoding tokenizer.
+
+- [gpt.py](./gpt.py) : the full GPT model
+- [dataset.py](./dataset.py) : torch dataset
+- [build_tokenizer.py](./build_tokenizer.py) : BPE tokenizer using `huggingface tokenizers` from scratch similar to GPT-2 saved at [tokenizer](./tokenizer/)
+- [train.py](./train.py) : training script contains optimizer, config, loss function, train loop, validation loop, model saving
+- [generate.py](./generate.py) : generate text by loading the model on CPU.
+
+---
+
+as always, an incredible tutorial by Andrej!
