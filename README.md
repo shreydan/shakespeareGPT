@@ -40,17 +40,38 @@ building & training GPT from scratch based off of [Andrej Karpathy: Let's build 
 #### **Versions**
 
 - ``` 
+    V1
     n_embed = 384
     n_heads = 12
     head_size = 32
     n_layers = 4
     lr = 6e-4
+    attn_dropout = 0.1
+    block_dropout = 0.1
 
-    [observed overfitting]
+    Train Loss: 4.020419597625732
+    Valid Loss: 6.213085174560547
   ```
   - [notebook](./saved/v1/shakespearegpt_v1.ipynb)
   - [saved model](./saved/v1/shakespeareGPT/)
   - [results](./saved/v1/generated.txt)
+
+- ``` 
+    V2
+    n_embed = 384
+    n_heads = 6
+    head_size = 64
+    n_layers = 3
+    lr = 5e-4
+    attn_dropout = 0.2
+    block_dropout = 0.2
+
+    Train Loss: 3.933095216751099 
+    Valid Loss: 5.970513820648193
+  ```
+  - [notebook](./saved/v2/shakespearegpt_v2.ipynb)
+  - [saved model](./saved/v2/shakespeareGPT/)
+  - [results](./saved/v2/generated.txt)
 
 
 
