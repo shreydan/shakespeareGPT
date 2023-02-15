@@ -3,7 +3,7 @@ from gpt import ShakespeareGPT
 from tokenizers import Tokenizer
 from dataclasses import dataclass
 
-model_path = ''
+model_path = './saved/v2/shakespeareGPT/shakespeareGPT.pth'
 
 tokenizer = Tokenizer.from_file('./tokenizer/shakespeare.json')
 
@@ -16,13 +16,13 @@ class Config:
     vocab_size = tokenizer.get_vocab_size()
     
     n_embed = 384
-    n_heads = 12
-    head_size = n_embed // n_heads # computes to 384/12=32
+    n_heads = 6
+    head_size = n_embed // n_heads
     
-    n_layers = 4
+    n_layers = 3
     
-    attn_dropout = 0.1
-    block_dropout = 0.1
+    attn_dropout = 0.2
+    block_dropout = 0.2
 
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -34,9 +34,9 @@ state_dict = torch.load(model_path, map_location='cpu')
 lm.load_state_dict(state_dict)
 
 generated_texts = []
-for length in [100]:
+for length in [1000]:
     generated = lm.generate(
-    torch.zeros((1,1),dtype=torch.long,device='cpu'), # initial context 0
+    torch.zeros((1,1),dtype=torch.long,device='cpu') + 61, # initial context 0, 61 is \n
     total=length
 )
     generated = tokenizer.decode(generated[0].cpu().numpy())
