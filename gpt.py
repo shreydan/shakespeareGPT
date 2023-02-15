@@ -96,6 +96,8 @@ class ShakespeareGPT(nn.Module):
     def __init__(self,Config):
         super().__init__()
         
+        self.Config = Config
+
         self.n_embed = Config.n_embed
         self.block_size = Config.block_size
         
@@ -114,7 +116,7 @@ class ShakespeareGPT(nn.Module):
         B,T = idx.shape
         
         token_embs = self.token_embedding_table(idx)
-        pos_embs = self.pos_embedding_table(torch.arange(T,device=Config.device))
+        pos_embs = self.pos_embedding_table(torch.arange(T,device=self.Config.device))
         
         
         x = token_embs + pos_embs
