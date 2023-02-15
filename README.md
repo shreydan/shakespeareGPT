@@ -37,6 +37,23 @@ building & training GPT from scratch based off of [Andrej Karpathy: Let's build 
 - [train.py](./train.py) : training script contains optimizer, config, loss function, train loop, validation loop, model saving
 - [generate.py](./generate.py) : generate text by loading the model on CPU.
 
+#### **Versions**
+
+- ``` 
+    n_embed = 384
+    n_heads = 12
+    head_size = 32
+    n_layers = 4
+    lr = 6e-4
+
+    [observed overfitting]
+  ```
+  - [notebook](./saved/v1/shakespearegpt_v1.ipynb)
+  - [saved model](./saved/v1/shakespeareGPT/)
+  - [results](./saved/v1/generated.txt)
+
+
+
 ---
 
 as always, an incredible tutorial by Andrej!
