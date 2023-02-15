@@ -17,6 +17,8 @@ building & training GPT from scratch based off of [Andrej Karpathy: Let's build 
 
 > used a character level tokenizer. Trained two versions with different configurations to better understand the impact of the hyperparameters such as n_embeds, num_heads.
 
+#### **[Try on Kaggle](https://www.kaggle.com/code/shreydan/shakespearegpt-character-level)**
+
 - [v1](./character_level_GPT/v1/):
   - [notebook](./character_level_GPT/v1/GPT_character_level_v1_trained.ipynb)
   - [saved model](./character_level_GPT/v1/shakespareGPT)
@@ -30,6 +32,8 @@ building & training GPT from scratch based off of [Andrej Karpathy: Let's build 
 ### ShakespeareGPT
 
 > used a byte-pair encoding tokenizer.
+
+#### **[Try on Kaggle](https://www.kaggle.com/code/shreydan/shakespearegpt)**
 
 - [gpt.py](./gpt.py) : the full GPT model
 - [dataset.py](./dataset.py) : torch dataset
